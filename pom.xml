@@ -10,6 +10,12 @@
 
     <name>Example of basic Maven project to integrate with SonarQube</name>
 
+    <properties>
+        <!-- Update Maven and SonarQube plugin versions -->
+        <maven.version>3.9.9</maven.version>
+        <sonar.host.url>http://54.144.232.21:9000</sonar.host.url>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -22,16 +28,19 @@
     <build>
         <pluginManagement>
             <plugins>
+                <!-- Maven Compiler Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.1</version>
                 </plugin>
+                <!-- SonarQube Plugin -->
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
-                    <version>3.6.0.1398</version>
+                    <version>3.9.9.2155</version> <!-- Updated to SonarQube 3.9.9 -->
                 </plugin>
+                <!-- JaCoCo Plugin for code coverage -->
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
@@ -48,9 +57,9 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <!-- Updated SonarQube server URL -->
                 <sonar.host.url>
-                    http://localhost:9000
+                    http://54.144.232.21:9000
                 </sonar.host.url>
             </properties>
         </profile>
@@ -61,6 +70,7 @@
             </activation>
             <build>
                 <plugins>
+                    <!-- JaCoCo Plugin Execution for Coverage -->
                     <plugin>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
